@@ -1,0 +1,41 @@
+2014-11-06 22:31:31.153 Dos de copas[4673:190829] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/rlx/Library/Developer/CoreSimulator/Devices/6790EAC4-B4C8-41CE-BAEA-C7E0352D7C5A/data/Containers/Data/Application/5B1BCB1A-1E17-411F-B009-D0822FE8CB69/Library/Cookies/Cookies.binarycookies
+2014-11-06 22:31:31.531 Dos de copas[4673:190829] Apache Cordova native platform version 3.6.3 is starting.
+2014-11-06 22:31:31.532 Dos de copas[4673:190829] Multi-tasking -> Device: YES, App: YES
+2014-11-06 22:31:31.537 Dos de copas[4673:190829] Unlimited access to network resources
+2014-11-06 22:31:31.560 Dos de copas[4673:190829] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+
+2014-11-06 22:31:32.210 Dos de copas[4673:190829] [CDVTimer][splashscreen] 317.945004ms
+2014-11-06 22:31:32.211 Dos de copas[4673:190829] [CDVTimer][TotalPluginStartup] 318.253040ms
+2014-11-06 22:31:32.736 Dos de copas[4673:190829] Resetting plugins due to page load.
+2014-11-06 22:31:35.682 Dos de copas[4673:190829] Finished load of: file:///Users/rlx/Library/Developer/CoreSimulator/Devices/6790EAC4-B4C8-41CE-BAEA-C7E0352D7C5A/data/Containers/Bundle/Application/2199D688-0EBA-4134-9116-AA9A810E13D0/Dos%20de%20copas.app/www/index.html
+2014-11-06 22:31:40.119 Dos de copas[4673:190829] Resetting plugins due to page load.
+2014-11-06 22:31:40.587 Dos de copas[4673:190829] Finished load of: file:///Users/rlx/Library/Developer/CoreSimulator/Devices/6790EAC4-B4C8-41CE-BAEA-C7E0352D7C5A/data/Containers/Bundle/Application/2199D688-0EBA-4134-9116-AA9A810E13D0/Dos%20de%20copas.app/www/search.html
+2014-11-06 22:31:49.471 Dos de copas[4673:190829] Resetting plugins due to page load.
+2014-11-06 22:31:50.937 Dos de copas[4673:190829] Finished load of: file:///Users/rlx/Library/Developer/CoreSimulator/Devices/6790EAC4-B4C8-41CE-BAEA-C7E0352D7C5A/data/Containers/Bundle/Application/2199D688-0EBA-4134-9116-AA9A810E13D0/Dos%20de%20copas.app/www/search.html?type=q&q=rioja
+2014-11-06 22:31:52.875 Dos de copas[4673:190829] Resetting plugins due to page load.
+2014-11-06 22:31:53.010 Dos de copas[4673:190829] Finished load of: file:///Users/rlx/Library/Developer/CoreSimulator/Devices/6790EAC4-B4C8-41CE-BAEA-C7E0352D7C5A/data/Containers/Bundle/Application/2199D688-0EBA-4134-9116-AA9A810E13D0/Dos%20de%20copas.app/www/search.html?type=q&q=rioja
+2014-11-06 22:31:59.412 Dos de copas[4673:190829] Resetting plugins due to page load.
+2014-11-06 22:31:59.546 Dos de copas[4673:190829] Finished load of: file:///Users/rlx/Library/Developer/CoreSimulator/Devices/6790EAC4-B4C8-41CE-BAEA-C7E0352D7C5A/data/Containers/Bundle/Application/2199D688-0EBA-4134-9116-AA9A810E13D0/Dos%20de%20copas.app/www/search.html
+2014-11-06 22:32:01.332 Dos de copas[4673:190829] Resetting plugins due to page load.
+2014-11-06 22:32:01.427 Dos de copas[4673:190829] Finished load of: file:///Users/rlx/Library/Developer/CoreSimulator/Devices/6790EAC4-B4C8-41CE-BAEA-C7E0352D7C5A/data/Containers/Bundle/Application/2199D688-0EBA-4134-9116-AA9A810E13D0/Dos%20de%20copas.app/www/index.html
+2014-11-06 22:32:02.495 Dos de copas[4673:190829] THREAD WARNING: ['BarcodeScanner'] took '12.679932' ms. Plugin should use a background thread.
+2014-11-06 23:39:52.445 Dos de copas[5206:210347] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/rlx/Library/Developer/CoreSimulator/Devices/6790EAC4-B4C8-41CE-BAEA-C7E0352D7C5A/data/Containers/Data/Application/7FBAA343-3416-4AF2-8A0D-9362E16B3478/Library/Cookies/Cookies.binarycookies
+2014-11-06 23:39:53.004 Dos de copas[5206:210347] Apache Cordova native platform version 3.6.3 is starting.
+2014-11-06 23:39:53.005 Dos de copas[5206:210347] Multi-tasking -> Device: YES, App: YES
+2014-11-06 23:39:53.021 Dos de copas[5206:210347] Unlimited access to network resources
+2014-11-06 23:39:53.045 Dos de copas[5206:210347] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+
+2014-11-06 23:39:53.941 Dos de copas[5206:210347] [CDVTimer][splashscreen] 403.581977ms
+2014-11-06 23:39:53.941 Dos de copas[5206:210347] [CDVTimer][TotalPluginStartup] 403.890967ms
+2014-11-06 23:39:54.490 Dos de copas[5206:210347] Resetting plugins due to page load.
+2014-11-06 23:39:55.035 Dos de copas[5206:210347] Finished load of: file:///Users/rlx/Library/Developer/CoreSimulator/Devices/6790EAC4-B4C8-41CE-BAEA-C7E0352D7C5A/data/Containers/Bundle/Application/A711A598-E470-4839-9F90-AF9EC2412A56/Dos%20de%20copas.app/www/index.html

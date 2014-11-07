@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dos de Copas App</title>
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<link rel="stylesheet" href="css/photoswipe.css"></link>
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css"></link>
+<link rel="stylesheet" href="css/redwine.css"></link>
+<link rel="stylesheet" href="css/2dc.css"></link>
+
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+
+<script type="text/javascript" src="js/klass.min.js"></script>
+<script type="text/javascript" src="js/code.photoswipe.jquery-3.0.4.min.js"></script>
+
+
+
+
+
+
+
+</head>
+<body>
+<script type="text/javascript">
+	
+	/*
+	 * IMPORTANT!!!
+	 * REMEMBER TO ADD  rel="external"  to your anchor tags. 
+	 * If you don't this will mess with how jQuery Mobile works
+	 */
+	 
+	(function(window, $, PhotoSwipe){
+		
+		$(document).on('pageinit', '#pageanuary',function(){	
+			$('div.gallery-page')
+				.on('pageshow', function(e){
+					
+					var 
+						currentPage = $(e.target),
+						options = {},
+						photoSwipeInstance = $("ul.gallery a", e.target).photoSwipe(options,  currentPage.attr('id'));
+						
+					return true;
+					
+				})
+				
+				.on('pagehide', function(e){
+					
+					var 
+						currentPage = $(e.target),
+						photoSwipeInstance = PhotoSwipe.getInstance(currentPage.attr('id'));
+
+					if (typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null) {
+						PhotoSwipe.detatch(photoSwipeInstance);
+					}
+					
+					return true;
+					
+				});
+			
+		});
+	
+	}(window, window.jQuery, window.Code.PhotoSwipe));
+	
+</script>
+
+	<div data-role="page" data-theme="a" data-add-back-btn="true" id="pageanuary" class="gallery-page">
+		
+		<div data-role="header" data-position="fixed">
+			<img class="centered" src="img/logoheader.png"></img>
+			<a href="javascript:history.back(1)" data-icon="back">Volver</a>
+		</div><!-- /header -->
+	
+		<div data-role="content">
+			<ul class="gallery">
+				<li><a href="img/anuario/portada.png" rel="external"><img src="img/anuario/thumb-portada.png" alt="portada" /></a></li>
+				<li><a href="img/anuario/p1.png" rel="external"><img src="img/anuario/thumb-p1.png" alt="pag001" /></a></li>
+				<li><a href="img/anuario/p2.png" rel="external"><img src="img/anuario/thumb-p2.png" alt="pag002" /></a></li>
+				<li><a href="img/anuario/p3.png" rel="external"><img src="img/anuario/thumb-p3.png" alt="pag003" /></a></li>		
+			</ul>
+		
+		</div><!-- /content -->
+	
+
+		
+		<div data-role="footer" data-position="fixed">
+    		
+		</div>
+	
+	</div><!-- /page -->
+</body>
+</html>

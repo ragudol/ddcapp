@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dos de Copas App</title>
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css"></link>
+<link rel="stylesheet" href="css/redwine.css"></link>
+<link rel="stylesheet" href="css/2dc.css"></link>
+
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+
+<script type="text/javascript" src="js/geturlparam.js"></script>
+<script type="text/javascript" src="js/load-json-winery.js"></script>
+
+
+<script type="text/javascript">
+/*$(function () {
+    var $win = $(window);
+
+    $win.scroll(function () {
+        if ($win.scrollTop() == 0)
+            alert('Scrolled to Page Top');
+        else if ($win.height() + $win.scrollTop()
+                       == $(document).height()) {
+            alert('Scrolled to Page Bottom');
+        }
+    });
+});*/
+</script>
+
+
+
+</head>
+<body>
+	<div data-role="page" id="winerypage">
+	
+
+		<div class="cabecera ui-grid-b" data-role="header" data-position="fixed">
+			<div class="ui-block-a">
+				<a href="index.html" id="boton-logo" rel="external" class="ui-btn  ui-icon-2dc ui-btn-icon-notext" data-icon="custom"></a>
+			</div>
+			<div class="ui-block-b">
+				<span class="nombre-app">Dos de copas</span><img id="img-loader" src="css/images/ajax-loader.gif"></img>
+			</div>
+			<div class="ui-block-c "> 
+				    <div id="custom-border-radius">
+					    <a href="javascript:history.back(1)" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all ui-btn-b">No text</a>
+					</div>
+			</div>
+		</div><!-- /header -->
+	
+		<div data-role="content">
+
+        <div class="bar_div"></div>
+    
+    	<div class="bar_div"><strong><span id="f_winery_name"></span></strong></div>
+    	<div id="f_winery_designation" class="bar_div"></div>
+    	
+    	<div data-role="tabs" id="winery_content">
+    		<div data-role="navbar">
+    		    <ul>
+			      <li><a href="#tab1" data-ajax="false">Contacto</a></li>
+			      <li><a href="#tab2" data-ajax="false">Info</a></li>
+			    </ul>
+    		</div>
+    		<div id="tab1">
+	  			<p><strong>Dirección: </strong></p>
+		        <p id="f_winery_address"></p>
+		        <p id="f_winery_address2"></p>
+		        <p id="f_winery_phone_number"><strong>Teléfono: </strong></p>
+			    <p id="f_winery_email"><strong>E-mail: </strong></p>
+			    <p id="f_winery_webpage"><strong>Web: </strong></p>
+	        </div>
+	        <div id="tab2">
+	        	<p id="f_winery_tanks_capacity"><strong>Capacidad depósitos: </strong></p>
+			    <p id="f_winery_stock_bottles"><strong>Botellas en stock: </strong></p>
+			    <p id="f_winery_barrels"><strong>Barricas: </strong></p>
+			    <div id="f_winery_comments">
+	                <p><strong>Comentario Anuario:</strong></p>
+	            </div>
+	        </div>
+    
+    	</div>
+    	
+
+	
+			
+		</div><!-- /content -->
+	
+		<div data-role="footer" data-id="winery_navbar" data-position="fixed">	
+			<div data-role="navbar">
+		        <ul>
+		            <li><a id="a_winery_labels" href="#" rel="external" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-top ui-icon-botle">Ver Marcas</a></li>
+		            <li><a id="a_winery_designation" href="#" rel="external" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-top ui-icon-designation">Ver D.O.</a></li>
+		        </ul>
+			</div><!-- /navbar -->	
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->
+</body>
+</html>

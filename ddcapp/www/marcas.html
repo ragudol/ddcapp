@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dos de Copas App</title>
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css"></link>
+<link rel="stylesheet" href="css/redwine.css"></link>
+<link rel="stylesheet" href="css/2dc.css"></link>
+
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+
+<script type="text/javascript" src="js/geturlparam.js"></script>
+<script type="text/javascript" src="js/load-json-labels.js"></script>
+<script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
+
+
+<script type="text/javascript">
+/*$(function () {
+    var $win = $(window);
+
+    $win.scroll(function () {
+        if ($win.scrollTop() == 0)
+            alert('Scrolled to Page Top');
+        else if ($win.height() + $win.scrollTop()
+                       == $(document).height()) {
+            alert('Scrolled to Page Bottom');
+        }
+    });
+});*/
+</script>
+
+
+
+</head>
+<body>
+	<div data-role="page" id="pagelabels">
+	
+		<div class="cabecera ui-grid-b" data-role="header" data-position="fixed">
+			<div class="ui-block-a">
+				<a href="index.html" id="boton-logo" class="ui-btn  ui-icon-2dc ui-btn-icon-notext" data-icon="custom"></a>
+			</div>
+			<div class="ui-block-b">
+				<span class="nombre-app">Dos de copas</span><img id="img-loader" src="css/images/ajax-loader.gif"></img>
+			</div>
+			<div class="ui-block-c "> 
+				    <div id="custom-border-radius">
+					    <a href="javascript:history.back(1)" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all ui-btn-b">No text</a>
+					</div>
+			</div>
+		</div><!-- /header -->
+	
+		<div data-role="content">
+
+			
+			
+			<div id="labelResults">
+				<ul id="labelList" data-role="listview" data-filter="false" data-icon="false">
+				</ul>
+			</div>
+			
+			<!-- 
+			<div id="moreResults-div">
+				<ul id="moreResults-ul" data-role="listview" data-filter="false">
+					<li>Cargar más resultados</li>
+				</ul>
+			</div>
+			 -->
+	
+			
+		</div><!-- /content -->
+	
+
+	
+	</div><!-- /page -->
+</body>
+</html>

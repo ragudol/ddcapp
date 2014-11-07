@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dos de Copas App</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css"></link>
+<link rel="stylesheet" href="css/redwine.css"></link>
+<link rel="stylesheet" href="css/2dc.css"></link>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+
+
+<script type="text/javascript" src="js/load-json-form.js"></script>
+
+
+
+
+</head>
+<body>
+	<div data-role="page" id="pagefilter" data-theme="a">
+
+	
+		<div class="cabecera ui-grid-b" data-role="header" data-position="fixed">
+			<div class="ui-block-a">
+				<a href="index.html" id="boton-logo" class="ui-btn  ui-icon-2dc ui-btn-icon-notext" data-icon="custom"></a>
+			</div>
+			<div class="ui-block-b">
+				<span class="nombre-app">Dos de copas</span><img id="img-loader" src="css/images/ajax-loader.gif"></img>
+			</div>
+			<div class="ui-block-c "> 
+				    <div id="custom-border-radius">
+					    <a href="javascript:history.back(1)" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all ui-btn-b">No text</a>
+					</div>
+			</div>
+		</div><!-- /header -->
+	
+		<div data-role="content">
+
+			<form action="marcas.html" method="get" data-ajax="false" id="form_marcas">
+				<fieldset>
+					<div data-role="fieldcontain">
+					<!--  
+						<label for="winename">Nombre de la marca:</label>
+						<input type="text" name="winename" id="winename" value="" data-mini="true" placeholder="Todas las marcas" />
+					-->
+						<div class="form-item">
+							<label for="winetypes" class="select">Tipo de vino:</label>
+							<select name="winetypes" id="winetypes" data-mini="true" >
+								<option value="">Todos los tipos</option>
+							</select> 
+						</div>
+			
+						<div class="form-item">
+							<label for="winedesignations" class="select">Denominación de origen:</label>
+							<select name="winedesignations" id="winedesignations" data-mini="true" >
+								<option value="">Todas las DD.OO.</option>
+							</select> 
+						</div>
+
+						<div class="form-item">
+			                   <div data-role="rangeslider" id = "pointsrange">
+			                       <div id="min-punt-display" class="left_slider_display">80</div>
+			                       <label for="min-punt">Puntuación:</label>
+			                       <input type="range" style='display:none' name="min-punt" id="min-punt" min="80" max="100" value="80" type="range">
+			                       <label for="max-punt">Puntuación:</label>
+			                       <input type="range" style='display:none' name="max-punt" id="max-punt" min="80" max="100" value="100" type="range">
+			                   	   <div id="max-punt-display" class="right_slider_display">100</div>
+			                   </div>
+			            </div>
+	                   
+	                   <div class="form-item">
+			                   <div data-role="rangeslider" id = "pricerange">
+			                       <div id="min-price-display" class="left_slider_display">0</div>
+			                       <label for="min-price">Precio:</label>
+			                       <input type="range" style='display:none' name="min-price" id="min-price" min="0" max="100" value="0" type="range">
+			                       <label for="max-price">Precio:</label>
+			                       <input type="range" style='display:none' name="max-price" id="max-price" min="0" max="100" value="100" type="range">
+			                   	   <div id="max-price-display" class="right_slider_display">100+</div>
+			                   </div>
+			           </div>
+	                   
+
+						<div data-role="footer" data-position="fixed" data-tap-toggle="false" id="botonbusqueda">
+							<div data-role="navbar">
+								<ul>
+									<li>
+										<a class="ui-icon-search ui-btn-icon-top ui-alt-icon ui-nodisc-icon" href="#">Buscar</a>
+									</li>
+								</ul>
+
+
+
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+			
+		</div><!-- /content -->
+	
+
+	
+	</div><!-- /page -->
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dos de Copas App</title>
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css"></link>
+<link rel="stylesheet" href="css/redwine.css"></link>
+<link rel="stylesheet" href="css/2dc.css"></link>
+
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript" src="js/parse-1.2.16.min.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+
+
+
+<script type="text/javascript">
+
+//Parse.initialize("oMIEb7BokBxpw2D0hVicjtUvhkEB2rVvK3mu14wX", "e1PioVLWxrIY7SVGn1DkXSM0rnXlKNYhiUuHgGZ7");
+
+//var TestObject = Parse.Object.extend("TestObject");
+//var testObject = new TestObject();
+//testObject.save({foo: "bar"}).then(function(object) {
+//  alert("yay! it worked");
+//});
+
+
+$(function() {
+    FastClick.attach(document.body);
+});
+</script>
+
+<script type="text/javascript">
+
+
+
+/* ANDROID */
+
+var scanCode = function() {
+	console.log("Aqui llego");
+	cordova.plugins.barcodeScanner.scan(
+		      function (result) {
+	    	      //alert("We got a barcode\n" +
+	        	  //       "Result: " + result.text + "\n" +
+	              //      "Format: " + result.format + "\n" +
+	              //      "Cancelled: " + result.cancelled);
+		          window.location.href = "search.html?type=b&q=" + result.text;
+	    	  }, 
+	      	function (error) {
+	        	  alert("Ha fallado la lectura del scanner. Error: " + error);
+	      	}
+	   	);
+	
+}
+
+/* IOS */
+ 
+ 
+/*
+var scanner = cordova.require("com.phonegap.plugins.barcodescanner.barcodescanner");
+var scanCode = function() {
+    console.log("Aqui llego");
+	scanner.scan(
+                 function (result) {
+                    if (result.cancelled) {
+                        location.href = "barcode.html";
+                    }
+                    else {
+                        location.href = "search.html?type=b&q=" + result.text;
+                    }
+                 },
+                 function (error) {
+                 alert("Ha fallado la lectura del scanner. Error: " + error);
+                 }
+                 );
+}
+*/
+
+</script>
+
+
+</head>
+<body>
+	<div data-role="page" data-theme="a" id="pageindex">
+	
+
+
+
+		<div class="cabecera ui-grid-b" data-role="header" data-position="fixed">
+			<div class="ui-block-a">
+				<a href="index.html" id="boton-logo" class="ui-btn  ui-icon-2dc ui-btn-icon-notext" data-icon="custom"></a>
+			</div>
+			<div class="ui-block-b">
+				<span class="nombre-app">Dos de copas</span><img id="img-loader" src="css/images/ajax-loader.gif"></img>
+			</div>
+			<div class="ui-block-c "> 
+			</div>
+		</div><!-- /header -->
+	
+	
+		<div id="header-space"></div>
+		
+		<div data-role="content">
+			<div class="ui-grid-a">
+				<div class="ui-block-a">	
+					<a href="search.html" class="ui-btn"  data-ajax="false" data-transition="turn">
+		                    <img src="img/img-busqueda.png"></img><br/><br/> Búsqueda
+		            </a>
+				</div>
+				<div class="ui-block-b">					
+					<a href="#" class="ui-btn"  data-ajax="false" data-transition="turn" onclick="scanCode();">
+		                    <img src="img/img-cod-barras.png"></img><br/><br/>Búsqueda por código de barras
+		            </a>
+				</div>
+			</div>
+			<div class="ui-grid-a">
+				<div class="ui-block-a" class="ui-btn">
+					<a href="filter.html" class="ui-btn"   data-ajax="false" data-transition="turn">
+			        	<img src="img/img-filtrado.png"></img><br><br> Filtrar marcas
+			        </a>
+				</div>
+				<div class="ui-block-b" class="ui-btn">
+					<a href="denominaciones.html" class="ui-btn" data-ajax="false" data-transition="turn">
+		                <img src="img/img-dos.png"></img><br><br>Denominaciones de origen
+		            </a>
+				</div>
+			</div>
+		</div><!-- /content -->
+	
+
+		
+
+	
+	</div><!-- /page -->
+</body>
+</html>
