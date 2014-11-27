@@ -72,6 +72,22 @@ a.ui-slider-handle-snapping { -webkit-transition: none; -moz-transition: none; }
 	text-align:right;
 }
 
+.cabecera .boton-menu {
+	margin: 0;
+	padding: 0 ;
+	background: transparent;
+	border: 0;
+	top: 5px;
+}
+
+.cabecera .boton-menu:hover{
+	margin: 0;
+	padding: 0 ;
+	background: transparent;
+	border: 0;
+	top: 5px;
+}
+
 #custom-border-radius .ui-btn-icon-notext.ui-corner-all {
     -webkit-border-radius: .3125em;
     border-radius: .3125em;
@@ -241,6 +257,7 @@ a.ui-slider-handle-snapping { -webkit-transition: none; -moz-transition: none; }
 	
 }
 
+/*
 #panelmenu{
 	width: 8em;
 }
@@ -253,6 +270,10 @@ a.ui-slider-handle-snapping { -webkit-transition: none; -moz-transition: none; }
 .ui-panel{
 	width: 8em;
 }
+
+*/
+
+
 
 .ui-btn-inner { 
 	white-space:normal; 
@@ -483,3 +504,74 @@ div.ui-input-btn.ui-btn.ui-icon-search.ui-btn-icon-top.boton-footer {
 .ui-footer {
     border-color: #B0B0B0 !important;  
 }
+
+.cuadroMarca {
+	/*width:50%;*/
+	max-width:200px;
+	/*border: 1px solid #777;*/
+	margin: 0 auto;
+	margin-bottom: 30px;
+	padding: 5px;
+
+}
+
+#labelsLeftColumn  a{
+	text-decoration: none;
+}	
+
+#labelsRightColumn  a{
+	text-decoration: none;
+}	
+
+.imageHolder { 
+	position: relative; 
+	width: 100%;
+	max-width: 200px; 
+	height: 150px; 
+	/*border: 1px solid #777;*/
+	text-align: center;
+} 
+
+.imageHolder .captionheart { 
+	position: absolute; 
+	width: 25px;
+	/*max-width: 200px;*/ 
+	height: 50px; 
+	top: 0px; 
+	right: 5px; 
+	color: black; 
+	/*background: lime; */
+	text-align:center; 
+	font-weight:bold; 
+	opacity:0.7; 
+
+} 
+
+.imageHolder .captionstar { 
+	position: absolute; 
+	width: 25px;
+	/*max-width: 200px; */
+	height: 50px; 
+	top: 0px; 
+	right: 30px; 
+	color: black; 
+	background: red; 
+	text-align:center; 
+	font-weight:bold; 
+	opacity:0.7; 
+
+} 
+
+.imgLabelsHome {
+	max-width: 100% ;
+	max-height: 250px;
+}
+
+.ficha {
+	margin-top: 100px;
+}
+
+.icon {
+	font-size: 30px;
+}
+/*- See more at: http://www.corelangs.com/css/box/caption.html#sthash.K4VYGpre.dpuf	*/

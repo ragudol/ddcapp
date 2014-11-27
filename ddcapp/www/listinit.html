@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dos de Copas App</title>
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css"></link>
+<link rel="stylesheet" href="css/redwine.css"></link>
+<link rel="stylesheet" href="css/2dc.css"></link>
+<link rel="stylesheet" href="css/ionicons.css"></link>
+
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+
+<script type="text/javascript" src="js/geturlparam.js"></script>
+<script type="text/javascript" src="js/load-json-initlabels.js"></script>
+<script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
+
+
+<script type="text/javascript">
+/*$(function () {
+    var $win = $(window);
+
+    $win.scroll(function () {
+        if ($win.scrollTop() == 0)
+            alert('Scrolled to Page Top');
+        else if ($win.height() + $win.scrollTop()
+                       == $(document).height()) {
+            alert('Scrolled to Page Bottom');
+        }
+    });
+});*/
+
+
+
+/* ANDROID */
+
+var scanCode = function() {
+	console.log("Aqui llego");
+	cordova.plugins.barcodeScanner.scan(
+		      function (result) {
+	    	      //alert("We got a barcode\n" +
+	        	  //       "Result: " + result.text + "\n" +
+	              //      "Format: " + result.format + "\n" +
+	              //      "Cancelled: " + result.cancelled);
+		          window.location.href = "search.html?type=b&q=" + result.text;
+	    	  }, 
+	      	function (error) {
+	        	  alert("Ha fallado la lectura del scanner. Error: " + error);
+	      	}
+	   	);
+	
+}
+
+/* IOS */
+ 
+ 
+/*
+var scanner = cordova.require("com.phonegap.plugins.barcodescanner.barcodescanner");
+var scanCode = function() {
+    console.log("Aqui llego");
+	scanner.scan(
+                 function (result) {
+                    if (result.cancelled) {
+                        location.href = "barcode.html";
+                    }
+                    else {
+                        location.href = "search.html?type=b&q=" + result.text;
+                    }
+                 },
+                 function (error) {
+                 alert("Ha fallado la lectura del scanner. Error: " + error);
+                 }
+                 );
+}
+*/
+</script>
+
+
+
+</head>
+<body>
+	<div data-role="page" id="initlabels">
+
+		<div class="cabecera" data-role="header" data-position="fixed">
+        	<h1>Dos de copas</h1>
+        	<a href="#nav-panel" class="boton-menu"><img src="css/images/logo36x36.svg"> </img></a>
+        	<a href="#add-form" data-icon="back" data-theme="b" data-iconpos="notext">Add</a>
+    	</div><!-- /header -->
+	
+
+	
+		<div data-role="content">
+
+			
+			
+			<div id="initLabelResults">
+				<div id="initLabelList" class="ui-grid-a">
+					  <div id="labelsLeftColumn" class="ui-block-a"></div>
+					  <div id="labelsRightColumn"class="ui-block-b"></div>
+				</div><!-- /grid-a -->
+			</div>
+			
+			<!-- 
+			<div id="moreResults-div">
+				<ul id="moreResults-ul" data-role="listview" data-filter="false">
+					<li>Cargar más resultados</li>
+				</ul>
+			</div>
+			 -->
+	
+			
+		</div><!-- /content -->
+	
+
+		<div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+
+			<ul data-role="listview">
+	            <li data-icon="delete"><a href="#" data-rel="close">Cerrar menú</a></li>
+			    <li><a href="search.html" data-ajax="false">
+			        <img src="img/img-busqueda.png">
+				    <h2>Búsqueda</h2>
+				    <p>Marcas, Bodegas y DD.OO.</p></a>
+			    </li>
+			    <li><a href="#" onclick="scanCode();">
+			        <img src="img/img-cod-barras.png">
+				    <h2>Escáner</h2>
+				    <p>Código de barras</p></a>
+			    </li>
+			    <li><a href="filter.html" data-ajax="false">
+			        <img src="img/img-filtrado.png">
+				    <h2>Filtro</h2>
+				    <p>Encuentra tus marcas</p></a>
+			    </li>
+			    <li><a href="denominaciones.html" data-ajax="false">
+			        <img src="img/img-dos.png">
+				    <h2>DD.OO.</h2>
+				    <p>Denominaciones</p></a>
+			    </li>
+			</ul>
+
+		</div><!-- /panel -->
+	
+	</div><!-- /page -->
+</body>
+</html>
