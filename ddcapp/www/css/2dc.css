@@ -143,6 +143,15 @@ a.ui-slider-handle-snapping { -webkit-transition: none; -moz-transition: none; }
 	background-size: 36px 36px;
 }
 
+/*permite ver el nombre completo en la cabecera*/
+.ui-header .ui-title{
+	margin:0;
+}
+
+/*elimina la sombra del boton de inicio*/
+.ui-shadow {
+    box-shadow: 0 0px 0 rgba(255, 255, 255, 0);
+}
 
 
 	

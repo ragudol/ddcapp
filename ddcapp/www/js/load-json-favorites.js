@@ -18,7 +18,7 @@ function imgError(image) {
     return true;
 }
 
-function loadLabels(querystring, page){
+function loadFavorites(querystring, page){
 	
 	if(page[1] != 1){
 		
@@ -81,13 +81,8 @@ function loadLabels(querystring, page){
 						inner += '<li> <a href="marca.html?id=' + iIdMarca + '" data-ajax="false">';
 						//inner += '<img class="lazy" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" onerror="imgError(this);" >';
 						inner += '<img class="lazy" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" >';
-						//inner += '<span>' + item.Nombre + '\'' + iAnyada + ' (' + iTipoDesc +') </span> <br/>';
-						inner += '<span>' + item.Nombre  +'</span> <br/>';
-						inner += '<span class="smallfont">' +iAnyada + ' - ' + iTipoDesc + '</span> <br/>';
+						inner += '<span>' + item.Nombre + '\'' + iAnyada + ' (' + iTipoDesc +') </span> <br/>';
 						inner += '<span class="smallfont">' + iPrecio + iPuntuacion + '</span>';
-						if (localStorage.getItem('favM'+iIdMarca)) {
-							inner += '</br> <span class="smallfont ion-ios7-heart"> Favorito</span>';
-						}	
 						inner += '</a> </li>';
 	
 						output.append(inner);
@@ -131,36 +126,29 @@ $(document).on('pageinit',function(){
 	
 	var page = []; //es necesario el array para pasar el parametro por referencia 
 	
-	var querystring = "?";
+	var querystring = "?list=";
+
+	var len = localStorage.length;
 	
-	var act_var = "";
 	
 	page[0] = 1; // page[0] es la página actual
 	page[1] = 0; // page [1] indica si ya no hay mas registros
 	
 	window.ultimapaginapedida = 1;
 	
-	act_var = gup("winename");
-	querystring += act_var.length > 0 ? '&n='+decodeURIComponent(act_var):"";
-	act_var = gup("winetypes");
-	querystring += act_var.length > 0 ? '&d='+decodeURIComponent(act_var):"";
-	act_var = gup("winedesignations");
-	querystring += act_var.length > 0 ? '&o='+decodeURIComponent(act_var):"";
-	act_var = gup("min-price");
-	querystring += act_var.length > 0 ? '&pmin='+decodeURIComponent(act_var):"";
-	act_var = gup("max-price");
-	console.log("precio recibido" + act_var);
-	if ("100" != act_var) {
-		querystring += act_var.length > 0 ? '&pmax='+decodeURIComponent(act_var):"";
-	}
-	act_var = gup("min-punt");
-	querystring += act_var.length > 0 ? '&vmin='+decodeURIComponent(act_var):"";
-	act_var = gup("max-punt");
-	querystring += act_var.length > 0 ? '&vmax='+decodeURIComponent(act_var):"";
-	act_var = gup("winery");
-	querystring += act_var.length > 0 ? '&b='+decodeURIComponent(act_var):"";
+	if (len > 0) {
+		querystring += localStorage.key(0).substring(4, localStorage.key(0).length);
 
-	console.log("querystring" + querystring);
+		for (var i=1, len=localStorage.length; i<len; i++)
+		{
+			querystring += "," + localStorage.key(i).substring(4, localStorage.key(i).length);
+		}		
+	}
+
+	
+
+
+	console.log("querystring:" + querystring);
 	
 	var output = $('#labelList');
 	
@@ -168,7 +156,7 @@ $(document).on('pageinit',function(){
 	
 	output.empty();
 	
-	loadLabels(querystring, page);
+	loadFavorites(querystring, page);
 	$(".liCarga").hide(); 
 	
 	//$('#moreResults-div').on("click", function(){
@@ -189,7 +177,7 @@ $(document).on('pageinit',function(){
 			var posicion = $(window).scrollTop();
 			var alto = $(document).height();
 			if ((window.ultimapaginapedida != page[0]) && ((visible + posicion) > (alto - 40))){
-				loadLabels(querystring, page);
+				loadFavorites(querystring, page);
 				$(".liCarga").hide(); 
 				$('#labelList').listview("refresh");
 				window.ultimapaginapedida = page[0];

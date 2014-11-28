@@ -188,7 +188,7 @@ $(document).on('pageinit',function(){
 	
 	var page = []; //es necesario el array para pasar el parametro por referencia 
 	
-	var querystring = "?";
+	var querystring = "?ran";
 	
 	var act_var = "";
 	
@@ -197,25 +197,7 @@ $(document).on('pageinit',function(){
 	
 	window.ultimapaginapedida = 1;
 	
-	act_var = gup("winename");
-	querystring += act_var.length > 0 ? '&n='+decodeURIComponent(act_var):"";
-	act_var = gup("winetypes");
-	querystring += act_var.length > 0 ? '&d='+decodeURIComponent(act_var):"";
-	act_var = gup("winedesignations");
-	querystring += act_var.length > 0 ? '&o='+decodeURIComponent(act_var):"";
-	act_var = gup("min-price");
-	querystring += act_var.length > 0 ? '&pmin='+decodeURIComponent(act_var):"";
-	act_var = gup("max-price");
-	console.log("precio recibido" + act_var);
-	if ("100" != act_var) {
-		querystring += act_var.length > 0 ? '&pmax='+decodeURIComponent(act_var):"";
-	}
-	act_var = gup("min-punt");
-	querystring += act_var.length > 0 ? '&vmin='+decodeURIComponent(act_var):"";
-	act_var = gup("max-punt");
-	querystring += act_var.length > 0 ? '&vmax='+decodeURIComponent(act_var):"";
-	act_var = gup("winery");
-	querystring += act_var.length > 0 ? '&b='+decodeURIComponent(act_var):"";
+
 
 	console.log("querystring" + querystring);
 	

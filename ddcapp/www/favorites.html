@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Dos de Copas App</title>
@@ -8,16 +9,18 @@
 <link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css"></link>
 <link rel="stylesheet" href="css/redwine.css"></link>
 <link rel="stylesheet" href="css/2dc.css"></link>
+<link rel="stylesheet" href="css/ionicons.css"></link>
 
 
 
 <script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 
 <script type="text/javascript" src="js/geturlparam.js"></script>
-<script type="text/javascript" src="js/load-json-wineries.js"></script>
+<script type="text/javascript" src="js/load-json-favorites.js"></script>
+<script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
 
 
 <script type="text/javascript">
@@ -39,23 +42,31 @@
 
 </head>
 <body>
-	<div data-role="page" id="wineriespage">
+	<div data-role="page" id="pagelabels">
 	
 		<div class="cabecera" data-role="header" data-position="fixed">
-        	<h2>Bodegas</h2>
+        	<h2>Vinos favoritos</h2>
         	<a href="#nav-panel" class="boton-menu"><img src="css/images/logo36x36.svg"> </img></a>
         	<a href="#add-form" data-icon="back" data-theme="b" data-iconpos="notext">Add</a>
     	</div><!-- /header -->
 	
-
-
 		<div data-role="content">
 
+			
+			
 			<div id="labelResults">
 				<ul id="labelList" data-role="listview" data-filter="false" data-icon="false">
 				</ul>
 			</div>
 			
+			<!-- 
+			<div id="moreResults-div">
+				<ul id="moreResults-ul" data-role="listview" data-filter="false">
+					<li>Cargar más resultados</li>
+				</ul>
+			</div>
+			 -->
+	
 			
 		</div><!-- /content -->
 
@@ -92,16 +103,10 @@
 			</ul>
 
 		</div><!-- /panel -->
-
-
-
 	
-		<div data-role="footer" data-position="fixed">	
-			<div data-role="navbar">
 
-			</div><!-- /navbar -->	
-		</div><!-- /footer -->
 	
 	</div><!-- /page -->
 </body>
 </html>
+
