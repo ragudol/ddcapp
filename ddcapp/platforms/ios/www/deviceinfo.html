@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Device Properties Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        var element = document.getElementById('deviceProperties');
+        element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
+                            'Device Cordova: '  + device.cordova  + '<br />' +
+                            'Device Platform: ' + device.platform + '<br />' +
+                            'Device UUID: '     + device.uuid     + '<br />' +
+                            'Device Version: '  + device.version  + '<br />' +
+                            '------------------- <br />' +
+                            'Es ios: ' + (device.platform == "iOS").toString() + '<br />' +
+                            'Es version >= 7.0: ' + (parseFloat(device.version) >= 7.0).toString() + '<br />' +
+                            'Necesita cabecera ancha: ' + ((device.platform == "iOS") && (parseFloat(device.version) >= 7.0)).toString();
+    }
+
+    </script>
+  </head>
+  <body>
+        <div class="cabecera ios-status-bar-off" data-role="header" data-position="fixed">
+        <h1>Dos de copas</h1>
+        <a href="index.html"> INDEX </a>
+    </div><!-- /header -->
+    <p id="deviceProperties">Loading device properties...</p>
+  </body>
+</html>
