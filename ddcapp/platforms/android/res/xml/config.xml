@@ -13,13 +13,28 @@
     <feature name="BarcodeScanner">
         <param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
     </feature>
+    <icon density="ldpi" src="res/android/logo2dcapp-ldpi.png" />
+    <icon density="mdpi" src="res/android/logo2dcapp-mdpi.png" />
+    <icon density="hdpi" src="res/android/logo2dcapp-hdpi.png" />
+    <icon density="xhdpi" src="res/android/logo2dcapp-xhdpi.png" />
+    <icon density="xxhdpi" src="res/android/logo2dcapp-xxhdpi.png" />
+    <splash density="land-hdpi" src="res/screens/splash-hdpi.png" />
+    <splash density="land-ldpi" src="res/screens/splash-ldpi.png" />
+    <splash density="land-mdpi" src="res/screens/splash-mdpi.png" />
+    <splash density="land-xhdpi" src="res/screens/splash-xhdpi.png" />
+    <splash density="port-hdpi" src="res/screens/splash-hdpi.png" />
+    <splash density="port-ldpi" src="res/screens/splash-ldpi.png" />
+    <splash density="port-mdpi" src="res/screens/splash-mdpi.png" />
+    <splash density="port-xhdpi" src="res/screens/splash-xhdpi.png" />
     <name>Dos de copas</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A wine catalog app for Dos de Copas
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="ragudol@gmail.com" href="http://unmat.com">
+        Ruben Agudo
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <preference name="SplashScreen" value="splash" />
+    <preference name="SplashScreenDelay" value="10000" />
 </widget>

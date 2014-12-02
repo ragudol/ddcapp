@@ -1,18 +1,3 @@
-//http://www.netlobo.com/url_query_string_javascript.html
-
-function gup( name ){
-	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
-	var regexS = "[\\?&]"+name+"=([^&#]*)";  
-	var regex = new RegExp( regexS );  
-	var results = regex.exec( window.location.href ); 
-	 if( results == null )    
-		 return "";  
-	 else    
-		 return results[1];
-
-}
-
-
 function loadLabel(querystring){
 	
 	var f_label = $('#f_label');
@@ -24,6 +9,8 @@ function loadLabel(querystring){
 	var f_designation = $('#f_designation');
 	var f_year = $('#f_year');
 	var f_comment = $('#f_comment');
+
+	var f_fav = $('#f_fav');
 	
 	var wine_image = $('#wine-image');
 	
@@ -82,7 +69,7 @@ function loadLabel(querystring){
 						f_comment.empty();
 						}
 					wine_image.children('img').attr("src", "http://unmat.com/2dc/piclabels/" + iIdMarca + ".jpg");
-					wine_image.children('img').attr("onerror", "this.onerror=null;this.src='img/empty.png';")
+					wine_image.children('img').attr("onerror", "this.onerror=null;this.src='img/empty.png';");
 					/*if (item.Imagen == null) {
 						wine_image.children('img').attr("src", "img/empty.png");
 						}*/
@@ -90,6 +77,12 @@ function loadLabel(querystring){
 					a_winery.attr("href", "bodega.html?id=" + item.IdBodega);
 					a_designation.attr("href", "denominacion.html?id=" + item.IdDO);
 					a_year.attr("href", "anyada.html?id=" + item.IdDO);
+
+					if (localStorage.getItem('favM'+iIdMarca)) {
+						f_fav.children('i').attr("class", "bigfont icon ion-ios7-heart");
+						f_fav.children('span').text("Eliminar de favoritos");
+					}	
+
 					
 					}
 
@@ -113,14 +106,34 @@ function loadLabel(querystring){
 	
 }
 
-$(function() {
-    FastClick.attach(document.body);
+$(document).on("click", "#f_fav", function() {
+		//alert("has hecho click");
+		var idM = gup("id").length > 0 ? decodeURIComponent(gup("id")):"";
+		// substring(13) porque extraemos el Id de cuadroMarcaId+iIdMarca
+		console.log("has hecho click en idM " + idM);
+		if (localStorage.getItem("favM" + idM )) {
+			localStorage.removeItem("favM" + idM);
+			$(".ion-ios7-heart").removeClass("ion-ios7-heart").addClass("ion-ios7-heart-outline");
+			$(".f_txt").text("  Añadir a favoritos");
+			$('.favremoved').stop().fadeIn(400).delay(3000).fadeOut(400);
+		}
+		else {
+			localStorage.setItem("favM" + idM, "true");	
+			$(".ion-ios7-heart-outline").removeClass("ion-ios7-heart-outline").addClass("ion-ios7-heart");
+			$(".f_txt").text("  Eliminar de favoritos");
+			$('.favadded').stop().fadeIn(400).delay(3000).fadeOut(400);
+		}
+		console.log($(this).children($("i")));
+		//$(this).children(0).toggleClass("ion-ios7-heart-outline ion-ios7-heart");
+		//$(this).children(2).text("ion-ios7-heart-outline ion-ios7-heart");
 });
+
 
 
 $('#labelpage').on('pageinit', function (e, data) {
 	//console.log('entrando en pageinit');
 });
+
 
 
 $(document).on('pagebeforeshow', '#labelpage',function(){

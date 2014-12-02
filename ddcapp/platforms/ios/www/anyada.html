@@ -13,11 +13,21 @@
 
 
 <script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script>
+		/*
+		http://stackoverflow.com/questions/16332625/adjusting-the-distance-of-a-swipe-event-in-jquery-mobile
+		*/
+	    $(document).bind("mobileinit", function(){
+	        $.event.special.swipe.horizontalDistanceThreshold = 100;
+	        $.event.special.swipe.verticalDistanceThreshold = 75;
+	    });
+</script>
 <script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 
 <script type="text/javascript" src="js/geturlparam.js"></script>
+<script type="text/javascript" src="js/2dc-commons.js"></script>
 <script type="text/javascript" src="js/jquery.flot.js"></script>
 <script type="text/javascript" src="js/load-json-vintage.js"></script>	
 
@@ -28,19 +38,12 @@
 	<div data-role="page" id="designationpage">
 
 		
-		<div class="cabecera ui-grid-b" data-role="header" data-position="fixed">
-			<div class="ui-block-a">
-				<a href="index.html" rel="external" id="boton-logo" class="ui-btn  ui-icon-2dc ui-btn-icon-notext" data-icon="custom"></a>
-			</div>
-			<div class="ui-block-b">
-				<span class="nombre-app">Dos de copas</span><img id="img-loader" src="css/images/ajax-loader.gif"></img>
-			</div>
-			<div class="ui-block-c "> 
-				    <div id="custom-border-radius">
-					    <a href="javascript:history.back(1)" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all ui-btn-b">No text</a>
-					</div>
-			</div>
-		</div><!-- /header -->
+		<div class="cabecera ios-status-bar-off" data-role="header" data-position="fixed" data-tap-toggle="false">
+        	<h1>Valoración de las añadas</h1>
+        	<a href="#nav-panel" class="boton-menu ios-status-bar-off"><img src="css/images/flechamenu.svg"> </img><img src="css/images/logo36x36.svg"> </img></a>
+    	</div><!-- /header -->
+
+
 	
 		<div data-role="content">
 
@@ -56,6 +59,47 @@
 	
 			
 		</div><!-- /content -->
+
+		<div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+
+			<ul data-role="listview">
+	            <li data-icon="delete"><a href="#" data-rel="close">Cerrar menú</a></li>
+			    <li><a href="index.html" data-ajax="false">
+			        <img src="img/img-sacacorchos.svg">
+				    <h2>Inicio</h2>
+				    <p>Muestra aleatoria</p></a>
+			    </li>
+			    <li><a href="search.html" data-ajax="false">
+			        <img src="img/img-busqueda.png">
+				    <h2>Búsqueda</h2>
+				    <p>Marcas, Bodegas y DD.OO.</p></a>
+			    </li>
+			    <li><a href="#" onclick="scanCode();">
+			        <img src="img/img-cod-barras.png">
+				    <h2>Escáner</h2>
+				    <p>Código de barras</p></a>
+			    </li>
+			    <li><a href="favorites.html" data-ajax="false">
+			        <img src="img/img-estrella.svg">
+				    <h2>Favoritos</h2>
+				    <p>Bodega particular</p></a>
+			    </li>
+			    <li><a href="filter.html" data-ajax="false">
+			        <img src="img/img-filtrado.png">
+				    <h2>Filtro</h2>
+				    <p>Encuentra tus marcas</p></a>
+			    </li>
+			    <li><a href="denominaciones.html" data-ajax="false">
+			        <img src="img/img-dos.png">
+				    <h2>DD.OO.</h2>
+				    <p>Denominaciones</p></a>
+			    </li>
+			</ul>
+
+		</div><!-- /panel -->
+
+
+
 	
 	    <div data-role="footer" data-id="vintage_navbar" data-position="fixed">	
 				<div data-role="navbar">

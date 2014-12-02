@@ -1,6 +1,14 @@
 /* Customization
 -----------------------------------------------------------------------------------------------------------*/
 
+body{
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
 a.ui-slider-handle-snapping { -webkit-transition: none; -moz-transition: none; }
 
 .centered {
@@ -138,6 +146,12 @@ a.ui-slider-handle-snapping { -webkit-transition: none; -moz-transition: none; }
 	background-color: rgba:(255,255,255,255	);
 	border: 0px;
 }
+
+
+.cabecera .boton-menu .ios-status-bar {
+	margin-top: 20px;
+}
+
 #boton-logo:after { 
 	background:  url("images/logo36x36.svg") 50% 50% no-repeat; 
 	background-size: 36px 36px;
@@ -149,12 +163,24 @@ a.ui-slider-handle-snapping { -webkit-transition: none; -moz-transition: none; }
 }
 
 /*elimina la sombra del boton de inicio*/
-.ui-shadow {
+.ui-shadow, .ui-page-theme-a .ui-btn:focus {
     box-shadow: 0 0px 0 rgba(255, 255, 255, 0);
 }
 
+/* modificamos el margen superior si estamos en ios > 7 */
+.ios-status-bar-on .ui-title {
+	margin-top: 20px;
+}
+.ios-status-bar-on .boton-menu {
+	margin-top: 20px;
+}
 
-	
+/* ampliamos el tamaño del thumb en los listados por defecto en 5em */
+.ui-li-has-thumb .ui-btn img{
+	max-height: inherit !important;
+}
+
+
 .ui-icon-barcode:after {
     background-image: url('images/barcodeicon.png');
     background-color: rgba(0, 0, 0, 0);
@@ -519,24 +545,26 @@ div.ui-input-btn.ui-btn.ui-icon-search.ui-btn-icon-top.boton-footer {
 	max-width:200px;
 	/*border: 1px solid #777;*/
 	margin: 0 auto;
-	margin-bottom: 30px;
+	/*margin-bottom: 30px;*/
 	padding: 5px;
 
 }
 
 #labelsLeftColumn  a{
 	text-decoration: none;
+	color: FireBrick;
 }	
 
 #labelsRightColumn  a{
 	text-decoration: none;
+	color: FireBrick;
 }	
 
 .imageHolder { 
 	position: relative; 
 	width: 100%;
 	max-width: 200px; 
-	height: 150px; 
+	height: 230px; 
 	/*border: 1px solid #777;*/
 	text-align: center;
 } 
@@ -573,14 +601,33 @@ div.ui-input-btn.ui-btn.ui-icon-search.ui-btn-icon-top.boton-footer {
 
 .imgLabelsHome {
 	max-width: 100% ;
-	max-height: 250px;
+	max-height: 230px;
 }
 
 .ficha {
-	margin-top: 100px;
 }
 
 .icon {
 	font-size: 30px;
 }
 /*- See more at: http://www.corelangs.com/css/box/caption.html#sthash.K4VYGpre.dpuf	*/
+
+.toast {
+    width:200px;
+    height:20px;
+    height:auto;
+    position:absolute;
+    left:50%;
+    margin-left:-100px;
+    bottom:5px;
+    background-color: #383838;
+    color: #F0F0F0;
+    font-family: Arial;
+    font-size: 20px;
+    padding:10px;
+    text-align:center;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+}

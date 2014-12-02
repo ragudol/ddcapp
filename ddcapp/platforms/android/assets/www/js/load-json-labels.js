@@ -1,23 +1,3 @@
-//http://www.netlobo.com/url_query_string_javascript.html
-
-function gup( name ){
-	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
-	var regexS = "[\\?&]"+name+"=([^&#]*)";  
-	var regex = new RegExp( regexS );  
-	var results = regex.exec( window.location.href ); 
-	 if( results == null )    
-		 return "";  
-	 else    
-		 return results[1];
-
-}
-
-function imgError(image) {
-    image.onerror = "";
-    image.src = "img/empty.png";
-    return true;
-}
-
 function loadLabels(querystring, page){
 	
 	if(page[1] != 1){
@@ -76,13 +56,20 @@ function loadLabels(querystring, page){
 						var iAnyada = item.Anyada==null?'':item.Anyada;
 						var iPrecio = item.Precio==null?'':item.Precio + '€';
 						var iPuntuacion = item.Puntuacion==null?'':' - ' + item.Puntuacion + ' puntos';
+						var iDenominacionOrigen = item.DenominacionOrigen==null?'':item.DenominacionOrigen;
 						
 						
 						inner += '<li> <a href="marca.html?id=' + iIdMarca + '" data-ajax="false">';
 						//inner += '<img class="lazy" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" onerror="imgError(this);" >';
 						inner += '<img class="lazy" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" >';
-						inner += '<span>' + item.Nombre + '\'' + iAnyada + ' (' + iTipoDesc +') </span> <br/>';
+						//inner += '<span>' + item.Nombre + '\'' + iAnyada + ' (' + iTipoDesc +') </span> <br/>';
+						inner += '<span>' + item.Nombre  +'</span> <br/>';
+						inner += '<span class="smallfont">' + iDenominacionOrigen + '</span> <br/>';
+						inner += '<span class="smallfont">' +iAnyada + ' - ' + iTipoDesc + '</span> <br/>';
 						inner += '<span class="smallfont">' + iPrecio + iPuntuacion + '</span>';
+						if (localStorage.getItem('favM'+iIdMarca)) {
+							inner += '</br> <span class="smallfont ion-ios7-heart"> Favorito</span>';
+						}	
 						inner += '</a> </li>';
 	
 						output.append(inner);
@@ -109,10 +96,6 @@ function loadLabels(querystring, page){
 	
 	} // if page[1] != 1	
 }
-
-$(function() {
-    FastClick.attach(document.body);
-});
 
 $(document).on('pageinit',function(){
 

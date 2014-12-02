@@ -13,10 +13,20 @@
 
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script>
+		/*
+		http://stackoverflow.com/questions/16332625/adjusting-the-distance-of-a-swipe-event-in-jquery-mobile
+		*/
+	    $(document).bind("mobileinit", function(){
+	        $.event.special.swipe.horizontalDistanceThreshold = 100;
+	        $.event.special.swipe.verticalDistanceThreshold = 75;
+	    });
+</script>
 <script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 
 <script type="text/javascript" src="js/geturlparam.js"></script>
+<script type="text/javascript" src="js/2dc-commons.js"></script>
 <script type="text/javascript" src="js/load-json-wineries.js"></script>
 
 
@@ -41,10 +51,9 @@
 <body>
 	<div data-role="page" id="wineriespage">
 	
-		<div class="cabecera" data-role="header" data-position="fixed">
-        	<h2>Bodegas</h2>
-        	<a href="#nav-panel" class="boton-menu"><img src="css/images/logo36x36.svg"> </img></a>
-        	<a href="#add-form" data-icon="back" data-theme="b" data-iconpos="notext">Add</a>
+		<div class="cabecera ios-status-bar-off" data-role="header" data-position="fixed" data-tap-toggle="false">
+        	<h1>Bodegas</h1>
+        	<a href="#nav-panel" class="boton-menu ios-status-bar-off"><img src="css/images/flechamenu.svg"> </img><img src="css/images/logo36x36.svg"> </img></a>
     	</div><!-- /header -->
 	
 
@@ -64,6 +73,11 @@
 
 			<ul data-role="listview">
 	            <li data-icon="delete"><a href="#" data-rel="close">Cerrar menú</a></li>
+			    <li><a href="index.html" data-ajax="false">
+			        <img src="img/img-sacacorchos.svg">
+				    <h2>Inicio</h2>
+				    <p>Muestra aleatoria</p></a>
+			    </li>
 			    <li><a href="search.html" data-ajax="false">
 			        <img src="img/img-busqueda.png">
 				    <h2>Búsqueda</h2>
@@ -96,7 +110,7 @@
 
 
 	
-		<div data-role="footer" data-position="fixed">	
+		<div data-role="footer" data-position="fixed"  data-tap-toggle="false">	
 			<div data-role="navbar">
 
 			</div><!-- /navbar -->	

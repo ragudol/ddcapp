@@ -1,22 +1,4 @@
-//http://www.netlobo.com/url_query_string_javascript.html
 
-function gup( name ){
-	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
-	var regexS = "[\\?&]"+name+"=([^&#]*)";  
-	var regex = new RegExp( regexS );  
-	var results = regex.exec( window.location.href ); 
-	 if( results == null )    
-		 return "";  
-	 else    
-		 return results[1];
-
-}
-
-function imgError(image) {
-    image.onerror = "";
-    image.src = "img/empty.png";
-    return true;
-}
 
 function loadLabels(querystring, page){
 	
@@ -71,8 +53,7 @@ function loadLabels(querystring, page){
 					$.each(data, function(i,item){
 	
 		
-						var innerL = '';
-						var innerR = '';
+						var inner = '';
 						var left = true;
 						var iIdMarca = item.IdMarca==null?'':item.IdMarca;
 						var iTipoDesc = item.TipoDesc==null?'':item.TipoDesc;
@@ -82,75 +63,48 @@ function loadLabels(querystring, page){
 						var iBodega = item.Bodega==null?'':item.Bodega;
 						var iDenominacionOrigen = item.DenominacionOrigen==null?'':item.DenominacionOrigen
 						
+
+
+						inner += '<div id="cuadroMarcaId'+ iIdMarca +'" class="cuadroMarca">';
+							inner += '<div class="imageHolder">';
+								inner += '<div><img class="lazy imgLabelsHome" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" ></div>';
+									if (localStorage.getItem('favM'+iIdMarca)) 
+										{
+											inner += '<div class="captionheart clear"><i class="bigfont icon ion-ios7-heart"></i></div>';
+										}
+									else
+										{
+											inner += '<div class="captionheart"><i class="bigfont icon ion-ios7-heart-outline"></i></div>';
+										}
+								//innerL += '<div class="captionstar"><i class="bigfont icon ion-ios7-star-outline"></i></div>';
+							inner += '</div>';
+							
+							//inner += '<img class="lazy" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" onerror="imgError(this);" >';
+							
+							inner += '<div class="ficha">' + item.Nombre  + '</div> ';
+							inner += '<div class="smallfont">' + iTipoDesc + ' - ' + iAnyada + '</div>';
+							inner += '<div class="smallfont">' + iBodega + '</div>';
+							inner += '<div class="smallfont">' + iDenominacionOrigen + '</div>';
+
+							inner += '<div class="smallfont">' + iPrecio + iPuntuacion + '</div>';
+
+							inner += '<a href="marca.html?id=' + iIdMarca + '" data-ajax="false">';
+							inner += 'Ver ficha</a>';
+							inner += '</div>';	
+						inner += '</div>';
+						inner += '<div class="bar_div"></div>';
+
+
 						if ((i + 1) & 1) {
 							//http://stackoverflow.com/questions/6211613/testing-whether-a-value-is-odd-or-even
-
-							innerL += '<div id="cuadroMarcaId'+ iIdMarca +'" class="cuadroMarca">';
-								innerL += '<div class="imageHolder">';
-									innerL += '<div><img class="lazy imgLabelsHome" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" ></div>';
-										if (localStorage.getItem('favM'+iIdMarca)) 
-											{
-												innerL += '<div class="captionheart clear"><i class="bigfont icon ion-ios7-heart"></i></div>';
-											}
-										else
-											{
-												innerL += '<div class="captionheart"><i class="bigfont icon ion-ios7-heart-outline"></i></div>';
-											}
-									//innerL += '<div class="captionstar"><i class="bigfont icon ion-ios7-star-outline"></i></div>';
-								innerL += '</div>';
-								
-								//inner += '<img class="lazy" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" onerror="imgError(this);" >';
-								
-								innerL += '<div class="ficha">' + item.Nombre + ', ' + iAnyada + '</div> ';
-								innerL += '<div>' + iTipoDesc + '</div>';
-								innerL += '<div>' + iBodega + '</div>';
-								innerL += '<div class="smallfont">' + iDenominacionOrigen + '</div>';
-
-								innerL += '<div class="smallfont">' + iPrecio + iPuntuacion + '</div>';
-
-								innerL += '<a href="marca.html?id=' + iIdMarca + '" data-ajax="false">';
-								innerL += 'Ver comentario</a>';
-								innerL += '</div>';	
-							innerL += '</div>';
-
-							output1.append(innerL);
+							output1.append(inner);
 							}
 						else {
-
-							innerR += '<div id="cuadroMarcaId'+ iIdMarca +'" class="cuadroMarca">';
-								innerR += '<div class="imageHolder">';
-									innerR += '<div><img class="lazy imgLabelsHome" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" ></div>';
-										if (localStorage.getItem('favM'+iIdMarca)) 
-											{
-												innerR += '<div class="captionheart"><i class="bigfont icon ion-ios7-heart"></i></div>';
-											}
-										else
-											{
-												innerR += '<div class="captionheart"><i class="bigfont icon ion-ios7-heart-outline"></i></div>';
-											}
-									//innerR += '<div class="captionstar"><i class="bigfont icon ion-ios7-star-outline"></i></div>';
-								innerR += '</div>';
-								
-								//inner += '<img class="lazy" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" onerror="imgError(this);" >';
-								
-								innerR += '<div class="ficha">' + item.Nombre + ', ' + iAnyada + '</div> ';
-								innerR += '<div>' + iTipoDesc + '</div>';
-								innerR += '<div>' + iBodega + '</div>';
-								innerR += '<div class="smallfont">' + iDenominacionOrigen + '</div>';
-
-								innerR += '<div class="smallfont">' + iPrecio + iPuntuacion + '</div>';
-
-								innerR += '<a href="marca.html?id=' + iIdMarca + '" data-ajax="false">';
-								innerR += 'Ver comentario</a>';
-								innerR += '</div>';	
-							innerR += '</div>';
-		
-							output2.append(innerR);
+							output2.append(inner);
 						}
 
-					}
-	
-					);//each data
+					});//each data
+
 					$("img.lazy").lazyload();
 					console.log($(window).height() + '<' + $(document).height());
 					if ($(window).height() < $(document).height()){
@@ -172,9 +126,7 @@ function loadLabels(querystring, page){
 	} // if page[1] != 1	
 }
 
-$(function() {
-    FastClick.attach(document.body);
-});
+
 
 $(document).on('pageinit',function(){
 
@@ -217,9 +169,11 @@ $(document).on('pageinit',function(){
 		console.log("has hecho click en idM " + idM);
 		if (localStorage.getItem("favM" + idM )) {
 			localStorage.removeItem("favM" + idM);
+			$('.favremoved').stop().fadeIn(400).delay(3000).fadeOut(400);
 		}
 		else {
-			localStorage.setItem("favM" + idM, "true");	
+			localStorage.setItem("favM" + idM, "true");
+			$('.favadded').stop().fadeIn(400).delay(3000).fadeOut(400);	
 		}
 		//console.log($(this).children(1));
 		$(this).children(1).toggleClass("ion-ios7-heart-outline ion-ios7-heart");
@@ -236,6 +190,7 @@ $(document).on('pageinit',function(){
 		console.log("SCROLL START: alto=" + alto + "- scrollTop= " + st);
 	});
 	*/
+
 
 	$(document).on("scrollstop", function(){
 			//console.log("-----------sigo entrando");

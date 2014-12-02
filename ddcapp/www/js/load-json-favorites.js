@@ -1,23 +1,3 @@
-//http://www.netlobo.com/url_query_string_javascript.html
-
-function gup( name ){
-	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
-	var regexS = "[\\?&]"+name+"=([^&#]*)";  
-	var regex = new RegExp( regexS );  
-	var results = regex.exec( window.location.href ); 
-	 if( results == null )    
-		 return "";  
-	 else    
-		 return results[1];
-
-}
-
-function imgError(image) {
-    image.onerror = "";
-    image.src = "img/empty.png";
-    return true;
-}
-
 function loadFavorites(querystring, page){
 	
 	if(page[1] != 1){
@@ -76,12 +56,15 @@ function loadFavorites(querystring, page){
 						var iAnyada = item.Anyada==null?'':item.Anyada;
 						var iPrecio = item.Precio==null?'':item.Precio + '€';
 						var iPuntuacion = item.Puntuacion==null?'':' - ' + item.Puntuacion + ' puntos';
+						var iDenominacionOrigen = item.DenominacionOrigen==null?'':item.DenominacionOrigen;
 						
 						
 						inner += '<li> <a href="marca.html?id=' + iIdMarca + '" data-ajax="false">';
 						//inner += '<img class="lazy" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" onerror="imgError(this);" >';
 						inner += '<img class="lazy" src="img/empty.png" data-original="http://unmat.com/2dc/thumblabels/' + iIdMarca + '.jpg" >';
-						inner += '<span>' + item.Nombre + '\'' + iAnyada + ' (' + iTipoDesc +') </span> <br/>';
+						inner += '<span>' + item.Nombre  +'</span> <br/>';
+						inner += '<span class="smallfont">' + iDenominacionOrigen + '</span> <br/>';
+						inner += '<span class="smallfont">' + iTipoDesc + ' - ' + iAnyada + '</span><br/>';
 						inner += '<span class="smallfont">' + iPrecio + iPuntuacion + '</span>';
 						inner += '</a> </li>';
 	
@@ -110,9 +93,6 @@ function loadFavorites(querystring, page){
 	} // if page[1] != 1	
 }
 
-$(function() {
-    FastClick.attach(document.body);
-});
 
 $(document).on('pageinit',function(){
 
@@ -133,31 +113,32 @@ $(document).on('pageinit',function(){
 	
 	page[0] = 1; // page[0] es la página actual
 	page[1] = 0; // page [1] indica si ya no hay mas registros
-	
+
 	window.ultimapaginapedida = 1;
 	
+
+	console.log("querystring:" + querystring);
+	
+	var output = $('#labelList');
+	
+	output.empty();
+
 	if (len > 0) {
 		querystring += localStorage.key(0).substring(4, localStorage.key(0).length);
 
 		for (var i=1, len=localStorage.length; i<len; i++)
 		{
 			querystring += "," + localStorage.key(i).substring(4, localStorage.key(i).length);
-		}		
+		}
+		loadFavorites(querystring, page);			
+	}
+	else
+	{
+		output.append("<li>No tiene ninguna marca seleccionada como favorita</li>")
 	}
 
-	
-
-
-	console.log("querystring:" + querystring);
-	
-	var output = $('#labelList');
-	
-	
-	
-	output.empty();
-	
-	loadFavorites(querystring, page);
 	$(".liCarga").hide(); 
+
 	
 	//$('#moreResults-div').on("click", function(){
 	//	loadLabels(querystring, page);

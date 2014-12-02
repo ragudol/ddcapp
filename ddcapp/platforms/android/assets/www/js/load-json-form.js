@@ -67,9 +67,6 @@ $(document).on('pageinit',function(){
 	
 });
 
-$(function() {
-    FastClick.attach(document.body);
-});
 
 $(document).on("change", "#max-punt", function() {
 	

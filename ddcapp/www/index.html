@@ -14,10 +14,20 @@
 
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script>
+		/*
+		http://stackoverflow.com/questions/16332625/adjusting-the-distance-of-a-swipe-event-in-jquery-mobile
+		*/
+	    $(document).bind("mobileinit", function(){
+	        $.event.special.swipe.horizontalDistanceThreshold = 100;
+	        $.event.special.swipe.verticalDistanceThreshold = 75;
+	    });
+</script>
 <script type="text/javascript" src="js/jquery.mobile-1.4.0.min.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
 
 <script type="text/javascript" src="js/geturlparam.js"></script>
+<script type="text/javascript" src="js/2dc-commons.js"></script>
 <script type="text/javascript" src="js/load-json-initlabels.js"></script>
 <script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
 
@@ -39,7 +49,7 @@
 
 
 /* ANDROID */
-
+/*
 var scanCode = function() {
 	console.log("Aqui llego");
 	cordova.plugins.barcodeScanner.scan(
@@ -56,7 +66,7 @@ var scanCode = function() {
 	   	);
 	
 }
-
+*/
 /* IOS */
  
  
@@ -87,18 +97,15 @@ var scanCode = function() {
 <body>
 	<div data-role="page" id="initlabels">
 
-		<div class="cabecera" data-role="header" data-position="fixed">
+		<div class="cabecera ios-status-bar-off" data-role="header" data-position="fixed" data-tap-toggle="false">
         	<h1>Dos de copas</h1>
-        	<a href="#nav-panel" class="boton-menu"><img src="css/images/logo36x36.svg"> </img></a>
-        	<a href="#add-form" data-icon="back" data-theme="b" data-iconpos="notext">Add</a>
+        	<a href="#nav-panel" class="boton-menu ios-status-bar-off"><img src="css/images/flechamenu.svg"> </img><img src="css/images/logo36x36.svg"> </img></a>
+        	<div class="toast favadded" style="display:none">Añadido a favoritos</div>
+			<div class="toast favremoved" style="display:none">Eliminado de favoritos</div>
     	</div><!-- /header -->
 	
-
 	
 		<div data-role="content">
-
-			
-			
 			<div id="initLabelResults">
 				<div id="initLabelList" class="ui-grid-a">
 					  <div id="labelsLeftColumn" class="ui-block-a"></div>
@@ -113,8 +120,6 @@ var scanCode = function() {
 				</ul>
 			</div>
 			 -->
-	
-			
 		</div><!-- /content -->
 	
 
@@ -122,6 +127,11 @@ var scanCode = function() {
 
 			<ul data-role="listview">
 	            <li data-icon="delete"><a href="#" data-rel="close">Cerrar menú</a></li>
+			    <li><a href="index.html" data-ajax="false">
+			        <img src="img/img-sacacorchos.svg">
+				    <h2>Inicio</h2>
+				    <p>Muestra aleatoria</p></a>
+			    </li>
 			    <li><a href="search.html" data-ajax="false">
 			        <img src="img/img-busqueda.png">
 				    <h2>Búsqueda</h2>
@@ -147,6 +157,11 @@ var scanCode = function() {
 				    <h2>DD.OO.</h2>
 				    <p>Denominaciones</p></a>
 			    </li>
+			    <!--
+			    <li><a href="deviceinfo.html" data-ajax="false">
+				    <h2>Device info</h2></a>
+			    </li>
+				-->
 			</ul>
 
 		</div><!-- /panel -->
